@@ -90,53 +90,58 @@ class _MyHomeStateState extends State<MyHomePage> {
                           itemCount: studlist == null ? 0 : studlist.length,
                           itemBuilder: (BuildContext context, int index) {
                             Student st = studlist[index];
-                            return Card(
-                              child: Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: width * 0.65,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          'Name: ${st.name}',
-                                          style: TextStyle(fontSize: 15),
-                                        ),
-                                        Text(
-                                          'Course: ${st.course}',
-                                          style: TextStyle(
-                                              fontSize: 15, color: Colors.grey),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  IconButton(
-                                    onPressed: () {
-                                      _nameController.text = st.name;
-                                      _courseController.text = st.course;
-                                      student = st;
-                                      updateIndex = index;
-                                    },
-                                    icon: Icon(
-                                      Icons.edit,
-                                      color: Colors.blueAccent,
-                                    ),
-                                  ),
-                                  IconButton(
-                                      icon: Icon(
-                                        Icons.delete,
-                                        color: Colors.red,
+                            if (st.name == "isaac") {
+                              return Card(
+                                child: Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: width * 0.65,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            'Name: ${st.name}',
+                                            style: TextStyle(fontSize: 15),
+                                          ),
+                                          Text(
+                                            'Course: ${st.course}',
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.grey),
+                                          ),
+                                        ],
                                       ),
+                                    ),
+                                    IconButton(
                                       onPressed: () {
-                                        dbmanager.deleteStudent(st.id);
-                                        setState(() {
-                                          studlist.removeAt(index);
-                                        });
-                                      })
-                                ],
-                              ),
-                            );
+                                        _nameController.text = st.name;
+                                        _courseController.text = st.course;
+                                        student = st;
+                                        updateIndex = index;
+                                      },
+                                      icon: Icon(
+                                        Icons.edit,
+                                        color: Colors.blueAccent,
+                                      ),
+                                    ),
+                                    IconButton(
+                                        icon: Icon(
+                                          Icons.delete,
+                                          color: Colors.red,
+                                        ),
+                                        onPressed: () {
+                                          dbmanager.deleteStudent(st.id);
+                                          setState(() {
+                                            studlist.removeAt(index);
+                                          });
+                                        })
+                                  ],
+                                ),
+                              );
+                            } else {
+                              return CircularProgressIndicator();
+                            }
                           },
                         );
                       }

@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -69,7 +69,7 @@ class _MyHomeStateState extends State<MyHomePage> {
                   ),
                   RaisedButton(
                     textColor: Colors.white,
-                    color: Colors.blueAccent,
+                    color: Colors.teal,
                     child: Container(
                         width: width * 0.9,
                         child: Text(
@@ -120,7 +120,7 @@ class _MyHomeStateState extends State<MyHomePage> {
                                     },
                                     icon: Icon(
                                       Icons.edit,
-                                      color: Colors.blueAccent,
+                                      color: Colors.teal,
                                     ),
                                   ),
                                   IconButton(
